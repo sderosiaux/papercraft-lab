@@ -1,0 +1,20 @@
+Papercraft lab
+Copyright (C) 2026 Stéphane Derosiaux and contributors
+
+The source code in this repository is provided under GPL-3.0-or-later.
+The complete license text is in LICENSE.
+
+PolyZamboni by Anton Florey is a separate project, included as a pinned Git
+submodule. Its code and license remain in vendor/PolyZamboni.
+https://github.com/AntonFlorey/PolyZamboni
+
+The Purple Tentacle example is an unofficial fan-made adaptation of a
+character from Day of the Tentacle. The underlying character, game and marks
+remain the property of their respective rights holders. The code license
+does not grant rights to those underlying properties. No affiliation or
+endorsement is claimed.
+
+The example mesh, rendered images and printable layouts were produced for
+this project with Blender and PolyZamboni. Concept exploration used AI image
+generation. The third-party reference image used during exploration is not
+redistributed in this repository.

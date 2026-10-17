@@ -1,0 +1,503 @@
+{
+  "concept": "B - equilibre, user approved",
+  "units": "cm",
+  "target_height_mm": 200,
+  "engine": "5.2.2 LTS",
+  "polyzamboni_version": "1.3.1",
+  "physical_build_tested": false,
+  "folding_simulation": false,
+  "paper_thickness_simulated": false,
+  "parts": {
+    "C": {
+      "vertices": 40,
+      "edges": 88,
+      "faces": 50,
+      "euler_characteristic": 2,
+      "closed_manifold": true,
+      "positive_volume_cm3": 1102.3136640143669,
+      "max_nonplanarity_mm": 8.881784197001252e-15,
+      "errors": [],
+      "islands": 9,
+      "components": [
+        {
+          "id": 0,
+          "faces": 1,
+          "step": 2
+        },
+        {
+          "id": 1,
+          "faces": 6,
+          "step": 6
+        },
+        {
+          "id": 2,
+          "faces": 6,
+          "step": 7
+        },
+        {
+          "id": 3,
+          "faces": 6,
+          "step": 3
+        },
+        {
+          "id": 4,
+          "faces": 6,
+          "step": 4
+        },
+        {
+          "id": 5,
+          "faces": 6,
+          "step": 1
+        },
+        {
+          "id": 6,
+          "faces": 6,
+          "step": 5
+        },
+        {
+          "id": 7,
+          "faces": 6,
+          "step": 9
+        },
+        {
+          "id": 8,
+          "faces": 7,
+          "step": 8
+        }
+      ],
+      "max_edge_length_error_mm": 2.0351316543099074e-06,
+      "max_overlap_area_mm2": 6.301405237607582e-05,
+      "glue_flaps": 47,
+      "face_coverage": "exactly once",
+      "polyzamboni_overlap_flags": 0,
+      "closure_piece": "C-2",
+      "pages": 4,
+      "paper": "VIOLET",
+      "edge_pairs": 47,
+      "max_page_overlap_mm2": 0.0,
+      "nominal_flap_height_mm": 5.0,
+      "minimum_border_mm": 11.999999999999993
+    },
+    "BG": {
+      "vertices": 18,
+      "edges": 42,
+      "faces": 26,
+      "euler_characteristic": 2,
+      "closed_manifold": true,
+      "positive_volume_cm3": 4.045108231251535,
+      "max_nonplanarity_mm": 1.685872995094151e-06,
+      "errors": [],
+      "islands": 6,
+      "components": [
+        {
+          "id": 0,
+          "faces": 1,
+          "step": 2
+        },
+        {
+          "id": 1,
+          "faces": 1,
+          "step": 3
+        },
+        {
+          "id": 2,
+          "faces": 8,
+          "step": 4
+        },
+        {
+          "id": 3,
+          "faces": 2,
+          "step": 5
+        },
+        {
+          "id": 4,
+          "faces": 6,
+          "step": 6
+        },
+        {
+          "id": 5,
+          "faces": 8,
+          "step": 1
+        }
+      ],
+      "max_edge_length_error_mm": 4.6698844791137617e-07,
+      "max_overlap_area_mm2": 1.7486012637846216e-13,
+      "glue_flaps": 22,
+      "face_coverage": "exactly once",
+      "polyzamboni_overlap_flags": 0,
+      "closure_piece": "BG-2",
+      "pages": 1,
+      "paper": "VIOLET",
+      "edge_pairs": 22,
+      "max_page_overlap_mm2": 0.0,
+      "nominal_flap_height_mm": 3.5,
+      "minimum_border_mm": 11.999999999999996
+    },
+    "BD": {
+      "vertices": 24,
+      "edges": 60,
+      "faces": 38,
+      "euler_characteristic": 2,
+      "closed_manifold": true,
+      "positive_volume_cm3": 7.468602306553538,
+      "max_nonplanarity_mm": 1.92542312260624e-06,
+      "errors": [],
+      "islands": 8,
+      "components": [
+        {
+          "id": 0,
+          "faces": 1,
+          "step": 2
+        },
+        {
+          "id": 1,
+          "faces": 8,
+          "step": 7
+        },
+        {
+          "id": 2,
+          "faces": 6,
+          "step": 3
+        },
+        {
+          "id": 3,
+          "faces": 6,
+          "step": 4
+        },
+        {
+          "id": 4,
+          "faces": 6,
+          "step": 5
+        },
+        {
+          "id": 5,
+          "faces": 6,
+          "step": 1
+        },
+        {
+          "id": 6,
+          "faces": 4,
+          "step": 6
+        },
+        {
+          "id": 7,
+          "faces": 1,
+          "step": 8
+        }
+      ],
+      "max_edge_length_error_mm": 4.747584325670573e-07,
+      "max_overlap_area_mm2": 1.2212453270876722e-13,
+      "glue_flaps": 30,
+      "face_coverage": "exactly once",
+      "polyzamboni_overlap_flags": 0,
+      "closure_piece": "BD-2",
+      "pages": 1,
+      "paper": "VIOLET",
+      "edge_pairs": 30,
+      "max_page_overlap_mm2": 0.0,
+      "nominal_flap_height_mm": 3.5,
+      "minimum_border_mm": 11.999999999999996
+    },
+    "V1": {
+      "vertices": 32,
+      "edges": 56,
+      "faces": 26,
+      "euler_characteristic": 2,
+      "closed_manifold": true,
+      "positive_volume_cm3": 16.657779860290173,
+      "max_nonplanarity_mm": 1.8701433612822171e-06,
+      "errors": [],
+      "islands": 5,
+      "components": [
+        {
+          "id": 0,
+          "faces": 1,
+          "step": 2
+        },
+        {
+          "id": 1,
+          "faces": 1,
+          "step": 5
+        },
+        {
+          "id": 2,
+          "faces": 8,
+          "step": 1
+        },
+        {
+          "id": 3,
+          "faces": 8,
+          "step": 4
+        },
+        {
+          "id": 4,
+          "faces": 8,
+          "step": 3
+        }
+      ],
+      "max_edge_length_error_mm": 4.176960821666853e-07,
+      "max_overlap_area_mm2": 6.848830804112028e-13,
+      "glue_flaps": 35,
+      "face_coverage": "exactly once",
+      "polyzamboni_overlap_flags": 0,
+      "closure_piece": "V1-2",
+      "pages": 1,
+      "paper": "VERT VIF",
+      "edge_pairs": 35,
+      "max_page_overlap_mm2": 0.0,
+      "nominal_flap_height_mm": 3.0,
+      "minimum_border_mm": 12.0
+    },
+    "V2": {
+      "vertices": 32,
+      "edges": 56,
+      "faces": 26,
+      "euler_characteristic": 2,
+      "closed_manifold": true,
+      "positive_volume_cm3": 8.012759948712635,
+      "max_nonplanarity_mm": 1.6748357928308977e-06,
+      "errors": [],
+      "islands": 5,
+      "components": [
+        {
+          "id": 0,
+          "faces": 1,
+          "step": 2
+        },
+        {
+          "id": 1,
+          "faces": 1,
+          "step": 5
+        },
+        {
+          "id": 2,
+          "faces": 8,
+          "step": 1
+        },
+        {
+          "id": 3,
+          "faces": 8,
+          "step": 4
+        },
+        {
+          "id": 4,
+          "faces": 8,
+          "step": 3
+        }
+      ],
+      "max_edge_length_error_mm": 2.1687553974913953e-07,
+      "max_overlap_area_mm2": 8.864118911100505e-07,
+      "glue_flaps": 35,
+      "face_coverage": "exactly once",
+      "polyzamboni_overlap_flags": 0,
+      "closure_piece": "V2-2",
+      "pages": 1,
+      "paper": "VERT VIF",
+      "edge_pairs": 35,
+      "max_page_overlap_mm2": 0.0,
+      "nominal_flap_height_mm": 3.0,
+      "minimum_border_mm": 12.000000000000002
+    },
+    "V3": {
+      "vertices": 32,
+      "edges": 56,
+      "faces": 26,
+      "euler_characteristic": 2,
+      "closed_manifold": true,
+      "positive_volume_cm3": 3.209830989062585,
+      "max_nonplanarity_mm": 1.674836304643712e-06,
+      "errors": [],
+      "islands": 5,
+      "components": [
+        {
+          "id": 0,
+          "faces": 1,
+          "step": 2
+        },
+        {
+          "id": 1,
+          "faces": 1,
+          "step": 5
+        },
+        {
+          "id": 2,
+          "faces": 8,
+          "step": 1
+        },
+        {
+          "id": 3,
+          "faces": 8,
+          "step": 4
+        },
+        {
+          "id": 4,
+          "faces": 8,
+          "step": 3
+        }
+      ],
+      "max_edge_length_error_mm": 1.4541255199951308e-07,
+      "max_overlap_area_mm2": 1.142359677594749e-13,
+      "glue_flaps": 35,
+      "face_coverage": "exactly once",
+      "polyzamboni_overlap_flags": 0,
+      "closure_piece": "V3-2",
+      "pages": 1,
+      "paper": "VERT VIF",
+      "edge_pairs": 35,
+      "max_page_overlap_mm2": 0.0,
+      "nominal_flap_height_mm": 2.5,
+      "minimum_border_mm": 12.0
+    }
+  },
+  "mounts": {
+    "BG_Bras_bas": {
+      "back_plane_error_mm": 0.0,
+      "height_from_base_mm": 110,
+      "side": "left",
+      "mount_center_cm": [
+        -4.428571428571429,
+        0.0,
+        11.0
+      ],
+      "vertices_inside_body": 0
+    },
+    "BD_Bras_leve": {
+      "back_plane_error_mm": 5.551115123125783e-15,
+      "height_from_base_mm": 130,
+      "side": "right",
+      "mount_center_cm": [
+        3.9454545454545453,
+        0.0,
+        13.0
+      ],
+      "vertices_inside_body": 0
+    },
+    "V1": {
+      "back_plane_error_mm": 1.6653345369377348e-15,
+      "height_from_base_mm": 47.0,
+      "distance_along_front_mm": 47.309766697797194,
+      "outer_diameter_mm": 63.0,
+      "depth_mm": 9.5,
+      "vertices_inside_body": 0
+    },
+    "V2": {
+      "back_plane_error_mm": 1.1102230246251565e-15,
+      "height_from_base_mm": 109.0,
+      "distance_along_front_mm": 109.71839510765733,
+      "outer_diameter_mm": 47.0,
+      "depth_mm": 8.0,
+      "vertices_inside_body": 0
+    },
+    "V3": {
+      "back_plane_error_mm": 3.191891195797325e-15,
+      "height_from_base_mm": 161.0,
+      "distance_along_front_mm": 162.0611157094755,
+      "outer_diameter_mm": 32.400000000000006,
+      "depth_mm": 6.5,
+      "vertices_inside_body": 0
+    }
+  },
+  "decorations": [
+    {
+      "name": "S_Sourcil",
+      "points_cm": [
+        [
+          -1.72,
+          1.0
+        ],
+        [
+          -1.47,
+          1.48
+        ],
+        [
+          -0.95,
+          1.56
+        ],
+        [
+          -0.32,
+          1.3
+        ],
+        [
+          0,
+          1.17
+        ],
+        [
+          0.45,
+          1.32
+        ],
+        [
+          1.2,
+          1.62
+        ],
+        [
+          1.6,
+          1.46
+        ],
+        [
+          1.7,
+          1.16
+        ],
+        [
+          1.37,
+          1.13
+        ],
+        [
+          0.92,
+          1.2
+        ],
+        [
+          0.35,
+          0.91
+        ],
+        [
+          0,
+          0.82
+        ],
+        [
+          -0.45,
+          0.96
+        ],
+        [
+          -1.03,
+          1.17
+        ],
+        [
+          -1.38,
+          1.12
+        ]
+      ],
+      "flat": true
+    },
+    {
+      "name": "P_Bande_verte",
+      "points_cm": [
+        [
+          -4.25,
+          0.02
+        ],
+        [
+          4.25,
+          0.02
+        ],
+        [
+          4.15,
+          0.8
+        ],
+        [
+          -4.15,
+          0.8
+        ]
+      ],
+      "flat": true
+    }
+  ],
+  "eyebrow_glue_contact_mm2": 41.98715046765166,
+  "assembled_dimensions_mm": [
+    134.82843017578125,
+    93.35763549804688,
+    200.0
+  ],
+  "total_shell_faces": 192,
+  "total_shell_pieces": 38,
+  "total_shell_pages": 9
+}

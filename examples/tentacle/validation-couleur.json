@@ -1,0 +1,44 @@
+{
+  "print_side": "outside",
+  "paper": "white",
+  "duplex": false,
+  "vector_colours": true,
+  "parts": {
+    "C": {
+      "pages": 4,
+      "edge_labels": 94,
+      "coloured_face_area_cm2": 659.907780198025,
+      "labels_on_coloured_faces": 0
+    },
+    "BG": {
+      "pages": 1,
+      "edge_labels": 44,
+      "coloured_face_area_cm2": 15.55342522147692,
+      "labels_on_coloured_faces": 0
+    },
+    "BD": {
+      "pages": 1,
+      "edge_labels": 60,
+      "coloured_face_area_cm2": 26.903790803131407,
+      "labels_on_coloured_faces": 0
+    },
+    "V1": {
+      "pages": 1,
+      "edge_labels": 70,
+      "coloured_face_area_cm2": 81.94987441032976,
+      "labels_on_coloured_faces": 0
+    },
+    "V2": {
+      "pages": 1,
+      "edge_labels": 70,
+      "coloured_face_area_cm2": 47.351546421420295,
+      "labels_on_coloured_faces": 0
+    },
+    "V3": {
+      "pages": 1,
+      "edge_labels": 70,
+      "coloured_face_area_cm2": 23.75710076815811,
+      "labels_on_coloured_faces": 0
+    }
+  }
+}

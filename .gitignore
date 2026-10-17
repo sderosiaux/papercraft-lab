@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+*.py[cod]
+.DS_Store
+.env
+.env.*
+.blender-test-*/
+output/
+tmp/
+references/
+vendor/*.zip
+*.blend1
+*.blend2
+README.txt

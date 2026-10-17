@@ -1,0 +1,33 @@
+TENTACULE POURPRE - CONCEPT B - 20 CM
+
+Le PDF comporte 13 pages : 3 de notice/gabarit, 9 de patrons, 1 de décors plats.
+Imprimer à 100 %, sans adapter à la page. Mesurer les repères de 50 mm.
+Imprimer EN COULEUR sur papier BLANC, en RECTO SIMPLE.
+Pages 4-9 : pièces violettes. Pages 10-12 : pièces vertes.
+Page 13 : décors noir (sourcil) et vert (bande), à découper directement.
+La face colorée se place à l'extérieur, le verso blanc à l'intérieur.
+Vu du côté coloré : pointillés = pli montagne ; tiret-point = pli vallée.
+Les identifiants sont dans les marges, les raccords dans les marges/languettes.
+Recopier au verso les repères situés hors des pièces AVANT de découper.
+Les traits gris reliant des chiffres aux arêtes sont des repères, pas des coupes.
+
+Le fichier .blend contient le véritable maillage et les données de dépliage
+PolyZamboni. Les images rendu-3d.png et vue-face.png proviennent de ce maillage.
+L'OBJ conserve des coordonnées en centimètres (format sans unité intégrée).
+
+Vérifications : surfaces fermées orientées, faces planes, longueurs 3D/2D,
+couverture des faces, paires de repères, chevauchements 2D, marges A4,
+plans de fixation, hauteur assemblée de 200 mm. Détails : validation.json.
+Tolérance d'intersection numérique : 0,0001 mm² par paire de polygones.
+Pas de test de montage physique, de simulation de pliage, ni d'épaisseur papier.
+
+Il s'agit d'un prototype à construire pour valider l'ergonomie réelle du montage.
+Pour rouvrir le dépliage dans Blender : sélectionner une pièce, touche N,
+panneau PolyZamboni. Ne pas modifier le maillage sans recalculer le patron.
+
+Sources outils :
+https://extensions.blender.org/add-ons/polyzamboni/
+https://github.com/AntonFlorey/PolyZamboni
+https://extensions.blender.org/add-ons/export-paper-model/
+Le MCP est optionnel pour ce workflow, réalisé avec l'API Python de Blender.
+https://github.com/ahujasid/mcp-for-blender
