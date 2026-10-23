@@ -83,7 +83,9 @@ def unwrap_and_audit(obj, max_faces, flap_height=.5, section_name=None, isolate_
         flap_count = 0
         component_stats = []
         for cid, comp in pm.connected_components.items():
-            assert not comp.cyclic and not comp.overlapping and not comp.has_overlapping_glue_flaps()
+            assert not comp.cyclic and not comp.overlapping and not comp.has_overlapping_glue_flaps(), {
+                'object':obj.name,'component':cid,'cyclic':comp.cyclic,'overlapping':comp.overlapping,
+                'overlapping_flaps':comp.has_overlapping_glue_flaps(),'faces':sorted(comp.face_index_set)}
             seen.extend(comp.face_index_set)
             polygons = []
             for fid in comp.face_index_set:
@@ -96,7 +98,12 @@ def unwrap_and_audit(obj, max_faces, flap_height=.5, section_name=None, isolate_
             for flap in comp.glueflap_geometry.values():
                 polygons.append(unary_union([Polygon(tri) for tri in flap]))
                 flap_count += 1
-            overlap_areas.extend(a.intersection(b).area for a,b in combinations(polygons,2))
+            for i,j in combinations(range(len(polygons)),2):
+                area=polygons[i].intersection(polygons[j]).area
+                assert area<1e-6, {'object':obj.name,'component':cid,'faces':sorted(comp.face_index_set),
+                    'polygon_pair':(i,j),'face_count':len(comp.face_index_set),'overlap_cm2':area,
+                    'valid_polygons':(polygons[i].is_valid,polygons[j].is_valid)}
+                overlap_areas.append(area)
             component_stats.append(dict(id=cid, faces=len(comp.face_index_set), step=comp.build_step_number))
         assert sorted(seen) == list(range(len(obj.data.polygons))), 'missing or duplicate faces'
         assert max(length_errors) < 1e-5, length_errors

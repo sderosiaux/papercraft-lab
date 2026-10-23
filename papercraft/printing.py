@@ -1,4 +1,4 @@
-"""Export the saved, audited nets with vector material colours on the outside.
+"""Export saved nets with vector solid colours or UV textures on the outside.
 
 Retains the exact component/page transforms stored in the Blender file.
 Numbers are placed on tabs or in the waste paper, never on coloured faces.
@@ -21,7 +21,7 @@ def srgb(rgb):
     return tuple(12.92*v if v <= .0031308 else 1.055*v**(1/2.4)-.055 for v in rgb[:3])
 
 
-def export_colored_parts(blend_path, output_dir, report_path, parts):
+def export_colored_parts(blend_path, output_dir, report_path, parts, attachment_guides=()):
     """Export A4 nets from saved PolyZamboni layout; parts are (code, object name) pairs."""
     OUT = Path(output_dir)
     RAW = OUT/"patrons-source"
@@ -29,7 +29,8 @@ def export_colored_parts(blend_path, output_dir, report_path, parts):
     (OUT/"qa").mkdir(exist_ok=True)
     bpy.ops.wm.open_mainfile(filepath=str(blend_path))
     report = json.loads(Path(report_path).read_text())
-    qa = {'print_side':'outside', 'paper':'white', 'duplex':False, 'vector_colours':True, 'parts':{}}
+    qa = {'print_side':'outside', 'paper':'white', 'duplex':False, 'vector_colours':True,
+          'uv_textures':False, 'hidden_attachment_marks':len(attachment_guides), 'parts':{}}
     for code, name in parts:
         obj = bpy.data.objects[name]
         components = printprepper.create_print_data_for_all_components(obj, 1.)
@@ -42,13 +43,16 @@ def export_colored_parts(blend_path, output_dir, report_path, parts):
         settings = pipeline.settings((21.,29.7))._replace(
             prints_on_model_inside=False, show_edge_numbers=False,
             show_build_step_numbers=False, line_width=.35,
-            fold_hide_threshold_angle=math.radians(.1))
+            fold_hide_threshold_angle=math.radians(.1),texture_quality='super')
         exp = exporters.MatplotlibBasedExporter('pdf', settings)
         label_count = 0
         face_area = 0.
         with PdfPages(RAW/f'{code}.pdf') as pdf:
             for pn, page in enumerate(pages, 1):
-                fig, ax = exp._MatplotlibBasedExporter__create_page_figure(page,False,True,False)
+                textured=any(t.absolute_texture_path for c in page for t in c.colored_triangles)
+                if textured:
+                    qa['uv_textures']=True;qa['vector_colours']=False
+                fig, ax = exp._MatplotlibBasedExporter__create_page_figure(page,textured,True,False)
                 faces, shapes, edge_items = [], [], []
                 for comp in page:
                     pts = lambda coords: [comp.page_transform*np.array(v) for v in coords]
@@ -56,12 +60,12 @@ def export_colored_parts(blend_path, output_dir, report_path, parts):
                     shape = unary_union([face]+[Polygon(pts(tri)) for f in comp.glue_flaps for tri in f.tris])
                     faces.append(face); shapes.append(shape)
                     face_area += face.area
-                    colour = srgb(comp.colored_triangles[0].color)
-                    # All triangles in each component share one solid material.
-                    assert all(np.allclose(t.color,comp.colored_triangles[0].color) for t in comp.colored_triangles)
-                    for poly in ([face] if face.geom_type=='Polygon' else face.geoms):
-                        assert sum(Polygon(ring).area for ring in poly.interiors)<1e-6
-                        ax.add_patch(Patch(np.array(poly.exterior.coords),facecolor=colour,edgecolor='none',zorder=-1))
+                    if not textured:
+                        colour = srgb(comp.colored_triangles[0].color)
+                        assert all(np.allclose(t.color,comp.colored_triangles[0].color) for t in comp.colored_triangles)
+                        for poly in ([face] if face.geom_type=='Polygon' else face.geoms):
+                            assert sum(Polygon(ring).area for ring in poly.interiors)<1e-6
+                            ax.add_patch(Patch(np.array(poly.exterior.coords),facecolor=colour,edgecolor='none',zorder=-1))
                     for e in comp.cut_edges+comp.fold_edges_at_flaps:
                         a,b=map(np.array,pts(e.coords))
                         edge_items.append((len(faces)-1,e.edge_index,a,b))
@@ -131,6 +135,23 @@ def export_colored_parts(blend_path, output_dir, report_path, parts):
                 for i,r in enumerate(occupied):
                     assert not r.intersects(face_union)
                     assert not any(r.intersects(s) for s in occupied[i+1:])
+                # Optional positioning marks are covered by the attached accessory.
+                for guide in attachment_guides:
+                    if guide['part']!=code:continue
+                    groups=io.read_connected_component_sets(obj.data)
+                    fid=guide['face_id']
+                    cid=next(k for k,fs in groups.items() if fid in fs)
+                    comp=next((c for c in page if c.og_component_id==cid),None)
+                    if comp is None:continue
+                    from mathutils import Vector
+                    local=io.read_local_coordinate_systems_per_face(obj.data)
+                    affine=io.read_affine_transforms_to_roots(obj.data)
+                    points=[comp.page_transform*printprepper.unfolding.get_globally_consistent_2d_coord_in_face(
+                        obj.data,Vector(p),fid,cid,local,affine) for p in guide['polygon_cm']]
+                    ax.add_patch(Patch(points,fill=False,edgecolor='#666666',linewidth=.35,linestyle=':',zorder=8))
+                    center=np.mean(points,axis=0)
+                    ax.text(*center,guide['label'],fontsize=5,ha='center',va='center',color='#444444',zorder=9,
+                            bbox={'facecolor':'white','alpha':.7,'edgecolor':'none','pad':.3})
                 pdf.savefig(fig)
                 fig.savefig(RAW/f'{code}_page{pn}.svg')
                 plt.close(fig)
